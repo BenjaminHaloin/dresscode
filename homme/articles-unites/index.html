@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DressCode - Articles à l'unité</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://files.catbox.moe/2f4sy7.png" type="image/png">
+  <style>
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    html, body {
+      background: linear-gradient(-45deg, #001f1f, #007BA7, #000000, #00FFFF);
+      background-size: 400% 400%;
+      animation: gradientFlow 10s ease infinite;
+      font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    h1, p, .grid, footer, .back-link {
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 3rem;
+      color: #3AB09E;
+      text-shadow: 0 0 12px #3AB09E, 0 0 24px #3AB09E;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      animation: fadeInDown 1s ease-out;
+    }
+    p.subtitle {
+      font-size: 1.1rem;
+      color: #bbbbbb;
+      margin-bottom: 50px;
+      animation: fadeInUp 1s ease-in;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 50px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .card {
+      background-color: #1a1a1aee;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 123, 167, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      animation: slideUp 1s ease-in-out;
+      border: 1px solid #3AB09E44;
+    }
+    .card:hover {
+      transform: scale(1.05) rotateZ(-0.5deg);
+      box-shadow: 0 0 45px rgba(0, 123, 167, 0.8);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 1px solid #3AB09E44;
+    }
+    .card .label {
+      padding: 16px;
+      font-size: 1rem;
+      color: #ffffff;
+      text-shadow: 0 0 5px #000;
+      background: linear-gradient(to right, #111, #1a1a1a);
+    }
+    .variations {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+    .variations img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 2px solid #3AB09E;
+      cursor: pointer;
+    }
+    .view-full {
+      margin: 10px 0 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background-color: #3AB09E;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #3AB09E88;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: neonPulse 2s infinite;
+    }
+    .view-full:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #3AB09Ecc;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(10, 10, 10, 0.95);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0, 123, 167, 0.5);
+    }
+    .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .close-btn:hover {
+      color: #3AB09E;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #3AB09E;
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(60px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes neonPulse {
+      0%, 100% { box-shadow: 0 0 12px #3AB09E; }
+      50% { box-shadow: 0 0 28px #3AB09E; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Articles à l'unité</h1>
+  <p class="subtitle">Découvrez nos pièces vendues à l’unité, avec leurs déclinaisons exclusives.</p>
+
+  <div class="grid">
+    <div class="card">
+      <img class="main-img" id="main1" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584857/09pm84_vivfug.png" loading="lazy" alt="Haut #885">
+      <div class="label">Haut #885<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584864/gzny5h_luwezm.png" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584870/l2qpx8_mbt1hl.png" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584876/78qcxt_dhxog5.png" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584882/48vc97_bslqpk.png" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584891/87xmhr_pb5jhp.png" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584896/87xmhr_kntn8w.png" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584901/fn89to_w8uzmd.png" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584908/jnj8pd_bhivi3.png" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584913/9e96z7_ibh5nj.png" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584921/34ze9f_zq2afd.png" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584926/bixb5b_uj9qzl.png" onclick="document.getElementById('main1').src=this.src">
+      </div>
+    </div>
+    <div class="card">
+      <img class="main-img" id="main2" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584962/6zff8a_pxnxza.png" loading="lazy" alt="Haut #887">
+      <div class="label">Haut #887<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584969/hp2pe4_mm71pc.png" onclick="document.getElementById('main2').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745584976/qbe7f2_l6gkhj.png" onclick="document.getElementById('main2').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585091/bil6xq_n38ecw.png" onclick="document.getElementById('main2').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585097/ktb8hy_yvhdjs.png" onclick="document.getElementById('main2').src=this.src">
+      </div>
+    </div>
+    <div class="card">
+      <img class="main-img" id="main3" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585145/mwz8yw_qprydg.png" loading="lazy" alt="Haut #942">
+      <div class="label">Haut #942<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585151/4lc8jp_epkkov.png" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585159/mmwh97_gtlkwb.png" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585165/3u0ntc_oc47ja.png" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585176/g6i6bk_q54hau.png" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585182/qupvcd_rxhzmk.png" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585187/a3nydx_s3zo5i.png" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585194/v82nw0_dzmwwl.png" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585200/kr8u8e_jytmj7.png" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585205/11k3lz_y4fbum.png" onclick="document.getElementById('main3').src=this.src">
+      </div>
+    </div>
+    <div class="card">
+      <img class="main-img" id="main4" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585223/wgx9or_gcxsbg.png" loading="lazy" alt="Haut #943">
+      <div class="label">Haut #943<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585228/wgx9or_id5onx.png" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585234/k6mg9j_dm6oqm.png" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585242/vuo0l7_vpvv9q.png" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585248/ywea4f_disaon.png" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585254/5zfmtd_honguz.png" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585260/tmv7j2_nhezrb.png" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585571/1ifmu7_pabwbb.png" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585578/53k9d6_xfulst.png" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585583/1mac5v_pckfaj.png" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585589/tj12yg_zxcuod.png" onclick="document.getElementById('main4').src=this.src">
+      </div>
+    </div>
+    <div class="card">
+      <img class="main-img" id="main5" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585594/1wk98h_tr7r6k.png" loading="lazy" alt="Haut #886">
+      <div class="label">Haut #886<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585600/sduh05_suf46e.png" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585608/tb5m22_ntv4if.png" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585611/a8fth7_nnrser.png" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585616/06sgnq_bpavcu.png" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585622/5dgdol_zwkxxl.png" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585628/i8v1p9_kwgedd.png" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585633/yhhomk_kjfuli.png" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585639/gdwnqi_djf7hj.png" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585644/arytod_b6i7ds.png" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585703/w589qf_zljbch.png" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585708/xhbzgn_zyjks6.png" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585714/esc8x6_ynb1iv.png" onclick="document.getElementById('main5').src=this.src">
+      </div>
+    </div>
+    <div class="card">
+      <img class="main-img" id="main6" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585720/91s2g9_pa0d3k.png" loading="lazy" alt="Pantalon #947">
+      <div class="label">Pantalon #947<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585725/eagzt2_utz9ui.png" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585731/aptcce_cinihc.png" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585736/c2w5n4_e0xyrp.png" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585742/e9lb7k_dkdwa9.png" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585748/ev7wl4_qajr08.png" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585753/rc7x7h_nx8b4c.png" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585759/xvnux4_qfstkh.png" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745585765/x6qppg_k6mlvg.png" onclick="document.getElementById('main6').src=this.src">
+      </div>
+    </div>
+  </div>
+
+  <a href="../index.html" class="back-link">← Retour à Côté Homme</a>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-btn" onclick="closeLightbox(event)">×</span>
+    <img id="lightbox-img" src="" alt="Zoom">
+  </div>
+
+  <footer>
+    &copy; 2025 DressCode. Tous droits réservés. Site conçu par l'équipe du DressCode.
+  </footer>
+
+  <script>
+    function openFullImage(button) {
+      const img = button.closest('.card').querySelector('img');
+      const src = img.getAttribute('src');
+      document.getElementById('lightbox-img').setAttribute('src', src);
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function closeLightbox(event) {
+      if (event) event.stopPropagation();
+      document.getElementById('lightbox').style.display = 'none';
+    }
+
+    document.querySelectorAll('.variations img').forEach(img => {
+      img.addEventListener('click', function() {
+        const mainImg = this.closest('.card').querySelector('.main-img');
+        mainImg.src = this.src;
+        this.closest('.variations').querySelectorAll('img').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

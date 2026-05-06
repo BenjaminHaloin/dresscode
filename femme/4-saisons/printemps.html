@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DressCode - Femme - Printemps</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://files.catbox.moe/1t4hdp.png" type="image/png">
+  <style>
+    /* MAINTENANCE A ENLEVER QUAND LA PAGE EST FAITES */
+    #page-maintenance {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://res.cloudinary.com/ravord-blue/image/upload/f_auto,q_auto/4ix0ii_gddrz4.png') center/cover no-repeat;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  will-change: background;
+}
+    #page-maintenance a {
+      margin-top: 700px;
+      padding: 15px 40px;
+      font-size: 1rem;
+      background-color: #ff007a;
+      color: #fff;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px #ff4da6;
+      transition: transform 0.2s;
+    }
+    #page-maintenance a:hover {
+      transform: scale(1.05);
+      background-color: #e6006b;
+    }
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    html, body {
+      background: linear-gradient(-45deg, #001f1f, #568203, #000000, #8DB600);
+      background-size: 400% 400%;
+      animation: gradientFlow 10s ease infinite;
+      font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    h1, p, .grid, footer, .back-link {
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 3rem;
+      color: #7BA05B;
+      text-shadow: 0 0 12px #7BA05B, 0 0 24px #004225;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      animation: fadeInDown 1s ease-out;
+    }
+    p.subtitle {
+      font-size: 1.1rem;
+      color: #bbbbbb;
+      margin-bottom: 50px;
+      animation: fadeInUp 1s ease-in;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 50px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .card {
+      background-color: #1a1a1aee;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(1, 50, 32, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      animation: slideUp 1s ease-in-out;
+      border: 1px solid #7BA05B44;
+    }
+    .card:hover {
+      transform: scale(1.05) rotateZ(-0.5deg);
+      box-shadow: 0 0 45px rgba(1, 50, 32, 0.8);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 1px solid #7BA05B44;
+    }
+    .card .label {
+      padding: 16px;
+      font-size: 1rem;
+      color: #ffffff;
+      text-shadow: 0 0 5px #000;
+      background: linear-gradient(to right, #111, #1a1a1a);
+    }
+    .variations {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+    .variations img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 2px solid #7BA05B;
+      cursor: pointer;
+    }
+    .view-full {
+      margin: 10px 0 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background-color: #7BA05B;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #7BA05B88;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: neonPulse 2s infinite;
+    }
+    .view-full:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #7BA05Bcc;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(10, 10, 10, 0.95);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(1, 50, 32, 0.5);
+    }
+    .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .close-btn:hover {
+      color: #7BA05B;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #7BA05B;
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(60px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes neonPulse {
+      0%, 100% { box-shadow: 0 0 12px #7BA05B; }
+      50% { box-shadow: 0 0 28px #7BA05B; }
+    }
+  </style>
+</head>
+<body>
+<!--MAINTENANCE -->
+<div id="page-maintenance">
+  <a href="../index.html" class="back-link">← Retour à Côté Femme</a>
+</div>
+  
+  <h1>Femme - Printemps</h1>
+  <p class="subtitle">Des tenues florales, légères et modernes, parfaites pour accueillir les beaux jours avec fraîcheur et style.</p>
+
+  <div class="grid">
+    <img src="https://example.com/femme-printemps1.jpg" loading="lazy" alt="Tenue Femme Printemps 1">
+    <div class="label">Femme Printemps #1<br><strong>Prix : 500$</strong></div>
+    <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+  </div>
+  <div class="card">
+    <img src="https://example.com/femme-printemps2.jpg" loading="lazy" alt="Tenue Femme Printemps 2">
+    <div class="label">Femme Printemps #2<br><strong>Prix : 250$</strong></div>
+    <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+  </div>
+  <div class="card">
+    <img src="https://example.com/femme-printemps3.jpg" loading="lazy" alt="Tenue Femme Printemps 3">
+    <div class="label">Femme Printemps #3<br><strong>Prix : 600$</strong></div>
+    <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+  </div>
+  <div class="card">
+    <img src="https://example.com/femme-printemps4.jpg" loading="lazy" alt="Tenue Femme Printemps 4">
+    <div class="label">Femme Printemps #4<br><strong>Prix : 500$</strong></div>
+    <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+  </div>
+  <div class="card">
+    <img src="https://example.com/femme-printemps5.jpg" loading="lazy" alt="Tenue Femme Printemps 5">
+    <div class="label">Femme Printemps #5<br><strong>Prix : 750$</strong></div>
+    <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+  </div>
+  <div class="card">
+    <img src="https://example.com/femme-printemps6.jpg" loading="lazy" alt="Tenue Femme Printemps 6">
+    <div class="label">Femme Printemps #6<br><strong>Prix : 500$</strong></div>
+    <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+  </div>
+</div>
+
+  <a href="../index.html" class="back-link">← Retour à Côté Femme</a>
+
+  <!-- Fenêtre lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="close-btn" onclick="closeLightbox(event)">×</span>
+  <img id="lightbox-img" src="" alt="Zoom">
+</div>
+
+  <footer>
+    &copy; 2025 DressCode. Tous droits réservés. Site conçu par l'équipe du DressCode.
+  </footer>
+
+  <script>
+    function openFullImage(button) {
+      const img = button.closest('.card').querySelector('img');
+      const src = img.getAttribute('src');
+      document.getElementById('lightbox-img').setAttribute('src', src);
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function closeLightbox(event) {
+      if (event) event.stopPropagation();
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

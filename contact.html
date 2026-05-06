@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DressCode - Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://files.catbox.moe/2f4sy7.png" type="image/png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to bottom, #0d0d0d, #000);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    .marquee {
+      position: sticky;
+      top: 0;
+      width: 100vw;
+      background: #0a0a0a;
+      border-top: 1px solid #111;
+      border-bottom: 1px solid #111;
+      box-shadow: 0 0 10px #ff007a44;
+      overflow: hidden;
+      white-space: nowrap;
+      z-index: 1000;
+    }
+    .marquee p {
+      display: inline-block;
+      padding: 12px;
+      font-size: 1rem;
+      color: #ff007a;
+      animation: scroll 15s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    main {
+      padding: 100px 20px 60px;
+      width: 100%;
+      max-width: 1200px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      background: linear-gradient(to right, #ff007a, #00cfff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px #ff007a;
+      margin-bottom: 30px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .contact-info {
+      font-size: 1.2rem;
+      color: #cccccc;
+      margin-bottom: 60px;
+      max-width: 850px;
+      line-height: 1.8;
+      animation: fadeIn 1.3s ease-out;
+    }
+
+    .section-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto 60px;
+    }
+
+    .section {
+      background-color: #1c1c1c;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 0, 122, 0.15);
+      transition: all 0.3s ease-in-out;
+    }
+    .section:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 25px rgba(255, 0, 122, 0.3);
+    }
+
+    .section h3 {
+      font-size: 1.6rem;
+      color: #ff007a;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      font-size: 1rem;
+      color: #bbbbbb;
+    }
+
+    .section a {
+      color: #ffffff;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    .location {
+      margin-top: 40px;
+      font-size: 1rem;
+      color: #aaa;
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .location strong {
+      color: #ff007a;
+    }
+
+    .location img {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 700px;
+      border-radius: 14px;
+      box-shadow: 0 0 30px rgba(255, 0, 122, 0.3);
+    }
+
+    .btn-back {
+      margin-top: 60px;
+      margin-bottom: 80px;
+      padding: 14px 36px;
+      font-size: 16px;
+      border-radius: 50px;
+      background: linear-gradient(90deg, #ff007a, #007bff);
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(255, 0, 122, 0.6), 0 0 25px rgba(0, 122, 255, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    .btn-back:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(0, 255, 234, 0.9), 0 0 35px rgba(255, 0, 234, 0.7);
+      filter: brightness(1.1);
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: #888;
+      text-align: center;
+      padding-bottom: 40px;
+    }
+
+    .socials img {
+      width: 36px;
+      margin-top: 10px;
+      filter: brightness(0.7);
+      transition: 0.3s;
+    }
+
+    .socials img:hover {
+      filter: brightness(1.2);
+    }
+
+    @media screen and (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      .contact-info { font-size: 1rem; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="marquee"><p>💬 Une demande, une idée, un projet ? Contactez le DressCode ! 💬</p></div>
+
+  <main>
+    <h1>Contact</h1>
+    <p class="contact-info">
+      Une question, une demande ou un projet sur-mesure ?<br>
+      Vous pouvez nous joindre via Lifeinvader ou directement en boutique.
+    </p>
+
+    <div class="section-wrapper">
+      <div class="section">
+        <h3>Via Lifeinvader</h3>
+        <p>Retrouvez notre profil ici :<br>
+          <a href="https://life.introrp.com/DressCode" target="_blank">LifeInvader DressCode</a>
+        </p>
+      </div>
+      <div class="section">
+        <h3>Commande personnalisée</h3>
+        <p>Pour une tenue sur-mesure, veuillez remplir le formulaire suivant :<br>
+          <a href="https://forms.gle/psdvrjvRokqfRJvV8" target="_blank">Formulaire de commande DressCode</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="location">
+      <p><strong>📍 Emplacement de la boutique :</strong></p>
+      <img loading="lazy" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745587349/ckrqjc_ww4vcq.png" alt="Carte DressCode">
+    </div>
+
+    <a href="/index.html" class="btn-back">← Retour à l’accueil</a>
+  </main>
+
+  <footer>
+    &copy; 2025 DressCode. Tous droits réservés. Site conçu par l'équipe du DressCode.<br>
+    <div class="socials">
+      <a href="https://life.introrp.com/dresscode"><img src="https://files.catbox.moe/eyj112.png" alt="LifeInvader"></a>
+    </div>
+  </footer>
+</body>
+</html>

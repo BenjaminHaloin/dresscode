@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DressCode - Collection Femme Glamour</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://files.catbox.moe/2f4sy7.png" type="image/png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    html, body {
+      background: linear-gradient(-45deg, #001f1f, #B8860B, #000000, #D4AF37);
+      background-size: 400% 400%;
+      animation: gradientFlow 10s ease infinite;
+      font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    h1, p, .grid, footer, .back-link {
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 3rem;
+      color: #DAA520;
+      text-shadow: 0 0 12px #DAA520, 0 0 24px #CFB53B;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      animation: fadeInDown 1s ease-out;
+    }
+    p.subtitle {
+      font-size: 1.1rem;
+      color: #bbbbbb;
+      margin-bottom: 50px;
+      animation: fadeInUp 1s ease-in;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 50px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .card {
+      background-color: #1a1a1aee;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 186, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      animation: slideUp 1s ease-in-out;
+      border: 1px solid #DAA52044;
+    }
+    .card:hover {
+      transform: scale(1.05) rotateZ(-0.5deg);
+      box-shadow: 0 0 45px rgba(255, 186, 0, 0.8);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 1px solid #DAA52044;
+    }
+    .card .label {
+      padding: 16px;
+      font-size: 1rem;
+      color: #ffffff;
+      text-shadow: 0 0 5px #000;
+      background: linear-gradient(to right, #111, #1a1a1a);
+    }
+    .variations {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+    .variations img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 2px solid #DAA520;
+      cursor: pointer;
+    }
+    .view-full {
+      margin: 10px 0 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background-color: #DAA520;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #DAA52088;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: neonPulse 2s infinite;
+    }
+    .view-full:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #DAA520cc;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(10, 10, 10, 0.95);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(255, 186, 0, 0.5);
+    }
+    .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .close-btn:hover {
+      color: #DAA520;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #DAA520;
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(60px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes neonPulse {
+      0%, 100% { box-shadow: 0 0 12px #DAA520; }
+      50% { box-shadow: 0 0 28px #DAA520; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Femme - Chic</h1>
+  <p class="subtitle">Des tenues élégantes et raffinées pensées pour les occasions spéciales comme pour sublimer le quotidien.</p>
+
+  <div class="grid">
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577440/02c28q_js76ck.png" loading="lazy" alt="Tenue Chic 1">
+      <div class="label">Femme chic #01<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577445/duh0z6_f8nsvx.png" loading="lazy" alt="Tenue Chic 2">
+      <div class="label">Femme Chic #02<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577451/z75dcl_osf9pk.png" loading="lazy" alt="Tenue Chic 3">
+      <div class="label">Femme Chic #03<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577457/dozer2_bdac3s.png" loading="lazy" alt="Tenue Chic 4">
+      <div class="label">Femme Chic #04<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577465/cppsrd_cdaq5m.png" loading="lazy" alt="Tenue Chic 5">
+      <div class="label">Femme Chic #05<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577472/sn05w9_xf5htt.png" loading="lazy" alt="Tenue Chic 6">
+      <div class="label">Femme Chic #06<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577478/029274_wonh7s.png" loading="lazy" alt="Tenue Chic 7">
+      <div class="label">Femme Chic #07<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577484/lc30n0_mh4alo.png" loading="lazy" alt="Tenue Chic 8">
+      <div class="label">Femme Chic #08<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577491/xt38jp_l6sdqa.png" loading="lazy" alt="Tenue Chic 9">
+      <div class="label">Femme Chic #09<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577501/6xa523_c7nyf9.png" loading="lazy" alt="Tenue Chic 10">
+      <div class="label">Femme Chic #10<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577505/c2ekjn_rq8e7e.png" loading="lazy" alt="Tenue Chic 11">
+      <div class="label">Femme Chic #11<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577512/2q4se2_aurnnf.png" loading="lazy" alt="Tenue Chic 12">
+      <div class="label">Femme Chic #12<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577516/uxpsj9_x8eon1.png" loading="lazy" alt="Tenue Chic 13">
+      <div class="label">Femme Chic #13<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577539/berlur_muteaf.png" loading="lazy" alt="Tenue Chic 14">
+      <div class="label">Femme Chic #14<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745577543/7jqhm4_qx4byp.png" loading="lazy" alt="Tenue Chic 15">
+      <div class="label">Femme Chic #15<br><strong>Prix : 500$</strong></div>
+      <button class="view-full" onclick="openFullImage(this)">Voir en grand</button>
+    </div>
+  </div>
+  
+
+  <a href="../index.html" class="back-link">← Retour à Côté Femme</a>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-btn" onclick="closeLightbox(event)">×</span>
+    <img id="lightbox-img" src="" alt="Zoom">
+  </div>
+  <footer>
+    &copy; 2025 DressCode. Tous droits réservés. Site conçu par l'équipe du DressCode.
+  </footer>
+  <script>
+    function openFullImage(button) {
+      const img = button.closest('.card').querySelector('img');
+      const src = img.getAttribute('src');
+      document.getElementById('lightbox-img').setAttribute('src', src);
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+    function closeLightbox(event) {
+      if (event) event.stopPropagation();
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

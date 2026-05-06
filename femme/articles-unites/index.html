@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DressCode - Articles à l'unité</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://files.catbox.moe/2f4sy7.png" type="image/png">
+  <style>
+     * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    html, body {
+      background: linear-gradient(-45deg, #001f1f, #AB274F, #000000, #FF91AF);
+      background-size: 400% 400%;
+      animation: gradientFlow 10s ease infinite;
+      font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    h1, p, .grid, footer, .back-link {
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 3rem;
+      color: #E52B50;
+      text-shadow: 0 0 12px #E52B50, 0 0 24px #683068;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      animation: fadeInDown 1s ease-out;
+    }
+    p.subtitle {
+      font-size: 1.1rem;
+      color: #bbbbbb;
+      margin-bottom: 50px;
+      animation: fadeInUp 1s ease-in;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 50px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .card {
+      background-color: #1a1a1aee;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(139, 0, 139, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      animation: slideUp 1s ease-in-out;
+      border: 1px solid #E52B5044;
+    }
+    .card:hover {
+      transform: scale(1.05) rotateZ(-0.5deg);
+      box-shadow: 0 0 45px rgba(139, 0, 139, 0.8);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 1px solid #E52B5044;
+    }
+    .card .label {
+      padding: 16px;
+      font-size: 1rem;
+      color: #ffffff;
+      text-shadow: 0 0 5px #000;
+      background: linear-gradient(to right, #111, #1a1a1a);
+    }
+    .variations {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+    .variations img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 2px solid #E52B50;
+      cursor: pointer;
+    }
+    .view-full {
+      margin: 10px 0 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background-color: #E52B50;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #E52B5088;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: neonPulse 2s infinite;
+    }
+    .view-full:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #E52B50cc;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(10, 10, 10, 0.95);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(139, 0, 139, 0.5);
+    }
+    .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .close-btn:hover {
+      color: #E52B50;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #E52B50;
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(60px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes neonPulse {
+      0%, 100% { box-shadow: 0 0 12px #E52B50; }
+      50% { box-shadow: 0 0 28px #E52B50; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Articles à l'unité</h1>
+  <p class="subtitle">Découvrez nos pièces vendues à l’unité, avec leurs déclinaisons exclusives.</p>
+
+  <div class="grid">
+    <div class="card">
+      <img class="main-img" id="main1" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572766/b5cpwm_ttn8os.png" loading="lazy" alt="Robe #944">
+      <div class="label">Robe #944<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572775/9ltt0y_kqlifx.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572782/o25d1a_rlbi4s.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572796/m5zqqw_s83dkn.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572802/hv94g1_mlhayt.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572807/veigr2_pyudye.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572813/m6a5h7_rtg74r.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572819/od64mj_fgc1at.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572825/8t2po3_h8vopu.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572831/9sa40s_loxljf.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572837/obkcqx_y7xcgp.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572844/owovhc_ohngwr.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572851/d0zs57_wmgcal.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572863/o7tic5_xq0k3z.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572870/zzqvpj_km8s9d.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572876/ip5f1q_kdenau.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572884/xkp635_bcpvqg.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572891/91pvc1_batmzy.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572898/g4c7uv_fhxenh.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572904/dm89bo_bcmtnt.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745572910/rkg2ls_ybff9s.png" loading="lazy" onclick="document.getElementById('main1').src=this.src">
+      </div>
+    </div>
+  
+    <div class="card">
+      <img class="main-img" id="main2" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573013/r0hzgj_pavpyc.png" loading="lazy" alt="Robe #946">
+      <div class="label">Robe #946<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573023/8ddjqr_c4wnnh.png" loading="lazy" onclick="document.getElementById('main2').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573031/18nj75_ahkpqu.png" loading="lazy" onclick="document.getElementById('main2').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573037/bt59g7_fxdzie.png" loading="lazy" onclick="document.getElementById('main2').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573044/knewul_gac5h0.png" loading="lazy" onclick="document.getElementById('main2').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573050/e55fnw_ydng2h.png" loading="lazy" onclick="document.getElementById('main2').src=this.src">
+      </div>
+    </div>
+  
+    <div class="card">
+      <img class="main-img" id="main3" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573116/4ygd3h_xvmd3r.png" loading="lazy" alt="Robe #942">
+      <div class="label">Robe #942<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573123/l4l4za_vbkvrn.png" loading="lazy" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573128/1oz0h2_i2gzcv.png" loading="lazy" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573133/qrw5ba_yjinm3.png" loading="lazy" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573140/z2m85l_sm27zh.png" loading="lazy" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573145/dx5wfw_phkl7y.png" loading="lazy" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573151/en4pun_rrimf2.png" loading="lazy" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573158/j0tq4l_wsmpvw.png" loading="lazy" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573163/g0n03a_kpm9gp.png" loading="lazy" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573169/qhrrjj_n7a2jf.png" loading="lazy" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573174/rcp9w8_aicopr.png" loading="lazy" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573180/l4nfkv_fev9n6.png" loading="lazy" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573186/maecev_khzghf.png" loading="lazy" onclick="document.getElementById('main3').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573192/j9zdpt_evmxom.png" loading="lazy" onclick="document.getElementById('main3').src=this.src">
+      </div>
+    </div>
+  
+    <div class="card">
+      <img class="main-img" id="main4" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573229/jux2og_z2dhrs.png" loading="lazy" alt="Haut #943">
+      <div class="label">Haut #943<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573236/gqb04l_bk5gmd.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573243/4262ej_ktxw35.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573250/k1d5o1_kciypm.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573257/u21nn8_pnmajr.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573264/bc5866_ostyxi.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573379/375vo3_ywnxqh.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573385/s6gzrz_kqc31u.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573391/ndn3ef_zlyq0e.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573398/as1e5x_otoh5r.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573404/m63j1r_vvdobv.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573410/391tp4_k34kex.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573417/1y5npg_pkkum2.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573424/i957km_fjrvxc.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573430/jz0ppx_klb52y.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573436/c6qscz_c3brdp.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573444/kti3t9_rkmqvc.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573452/rszvam_kxtdko.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573459/hiykik_c2cttq.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573464/bifo5y_q7yvbk.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573469/92ixq6_mrc6dh.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573473/92ixq6_cw9uju.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573582/z5lgga_xh3ujj.png" loading="lazy" onclick="document.getElementById('main4').src=this.src">
+      </div>
+    </div>
+  
+    <div class="card">
+      <img class="main-img" id="main5" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573653/p7t4wd_qrb8z5.png" loading="lazy" alt="Haut #941">
+      <div class="label">Haut #941<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573676/yc21k0_zc8prx.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573897/quae1f_p8hq3l.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573902/9hq5z0_jwmqx9.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573907/qt70k5_rq2zvp.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573913/475d35_ds7j0v.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573920/7xo5i6_o0idxk.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573927/elojva_ldczvw.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573933/h5mw1p_vakmvj.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573938/h340o8_rqxaj3.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573944/5iph01_lt6o1i.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573949/e733q2_bbtxew.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573955/a2s78t_fky7pc.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573963/nwuvj9_uinxvg.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573969/2it5xn_vhunch.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573974/7vctfr_wggrvz.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573979/4u8rwy_ezbtk2.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573985/2ny5o6_wmnldw.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573991/g803r0_bwaydm.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745573997/wskel9_ue20ny.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574003/qgk61a_kdfhqc.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574009/xzn78r_tmqoan.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574109/ehhx4x_jlggh2.png" loading="lazy" onclick="document.getElementById('main5').src=this.src">
+      </div>
+    </div>
+  
+    <div class="card">
+      <img class="main-img" id="main6" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574134/b8whwh_ui0egz.png" loading="lazy" alt="Haut #947">
+      <div class="label">Haut #947<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574141/frfyxp_xfrjlr.png" loading="lazy" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574148/g8c1ph_tre2f0.png" loading="lazy" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574154/2xobvq_tv9lsf.png" loading="lazy" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574160/b9npjc_nke9cj.png" loading="lazy" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574169/qpdz5v_bhka79.png" loading="lazy" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574174/jb5fem_bc1ifn.png" loading="lazy" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574181/tldz3c_komjpr.png" loading="lazy" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574185/1921ty_cq92or.png" loading="lazy" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574193/ujabdh_v2p33m.png" loading="lazy" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574198/4xvukr_r8mypf.png" loading="lazy" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574203/1kbxv0_ogeb89.png" loading="lazy" onclick="document.getElementById('main6').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574208/07uf9u_v5rtyb.png" loading="lazy" onclick="document.getElementById('main6').src=this.src">
+      </div>
+    </div>
+  
+    <div class="card">
+      <img class="main-img" id="main7" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574424/svd53a_akkfjy.png" loading="lazy" alt="Haut #948">
+      <div class="label">Haut #948<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574435/wem2ir_jstdp6.png" loading="lazy" onclick="document.getElementById('main7').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574440/6hpt3p_aayaxb.png" loading="lazy" onclick="document.getElementById('main7').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574447/dtlv2c_cfkqfz.png" loading="lazy" onclick="document.getElementById('main7').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574452/ut9xp4_oxrvjb.png" loading="lazy" onclick="document.getElementById('main7').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574458/edzzyx_zsjnti.png" loading="lazy" onclick="document.getElementById('main7').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574464/h7mz9g_ggfbno.png" loading="lazy" onclick="document.getElementById('main7').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574471/z25te6_xpra6y.png" loading="lazy" onclick="document.getElementById('main7').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574476/zf36hs_azd8gy.png" loading="lazy" onclick="document.getElementById('main7').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574483/vsfg7p_csl2up.png" loading="lazy" onclick="document.getElementById('main7').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574491/fvc5da_wblwl5.png" loading="lazy" onclick="document.getElementById('main7').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574496/l2j65j_ooaeri.png" loading="lazy" onclick="document.getElementById('main7').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574502/c97io0_iyksfy.png" loading="lazy" onclick="document.getElementById('main7').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574526/13jlh6_lgj1fp.png" loading="lazy" onclick="document.getElementById('main7').src=this.src">
+      </div>
+    </div>
+  
+    <div class="card">
+      <img class="main-img" id="main8" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574567/7bdc93_w5dlau.png" loading="lazy" alt="Haut #633">
+      <div class="label">Haut #633<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574573/vv21pk_goyyqo.png" loading="lazy" onclick="document.getElementById('main8').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574578/95o0jv_pvydto.png" loading="lazy" onclick="document.getElementById('main8').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574583/9yxmvw_igz6mk.png" loading="lazy" onclick="document.getElementById('main8').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574587/mp3o1k_gw2wfs.png" loading="lazy" onclick="document.getElementById('main8').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574593/u5w2tt_buktac.png" loading="lazy" onclick="document.getElementById('main8').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574600/wijaup_h74cpp.png" loading="lazy" onclick="document.getElementById('main8').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574604/qn2bjz_ruta8c.png" loading="lazy" onclick="document.getElementById('main8').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574609/marajo_exmkkz.png" loading="lazy" onclick="document.getElementById('main8').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574615/o6oms9_bbzbmf.png" loading="lazy" onclick="document.getElementById('main8').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574619/6axdoz_ns8ttz.png" loading="lazy" onclick="document.getElementById('main8').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574624/4ec02s_gvcm2f.png" loading="lazy" onclick="document.getElementById('main8').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574629/kcb76d_omz7af.png" loading="lazy" onclick="document.getElementById('main8').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574638/qkihty_tcvvhm.png" loading="lazy" onclick="document.getElementById('main8').src=this.src">
+      </div>
+    </div>
+  
+    <div class="card">
+      <img class="main-img" id="main9" src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574673/5ah0o8_bu48r3.png" loading="lazy" alt="Haut #945">
+      <div class="label">Haut #945<br><strong>200$</strong></div>
+      <div class="variations">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574678/n2bp3h_axctcn.png" loading="lazy" onclick="document.getElementById('main9').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574684/qdfk8r_b8cbtv.png" loading="lazy" onclick="document.getElementById('main9').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574691/69sg3h_jit1pv.png" loading="lazy" onclick="document.getElementById('main9').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574697/a06cqz_jqvhnk.png" loading="lazy" onclick="document.getElementById('main9').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574702/jrumzh_l85mlk.png" loading="lazy" onclick="document.getElementById('main9').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574709/6acxz9_kwxrlo.png" loading="lazy" onclick="document.getElementById('main9').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574714/nfoap1_vnjl43.png" loading="lazy" onclick="document.getElementById('main9').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574720/qe9zgn_byehwi.png" loading="lazy" onclick="document.getElementById('main9').src=this.src">
+        <img src="https://res.cloudinary.com/ravord-blue/image/upload/v1745574727/lod70z_ptezsq.png" loading="lazy" onclick="document.getElementById('main9').src=this.src">
+      </div>
+    </div>
+  </div>
+  
+
+  <a href="../index.html" class="back-link">← Retour à Côté Femme</a>
+
+  <footer>
+    &copy; 2025 DressCode. Tous droits réservés. Site conçu par l'équipe du DressCode.
+  </footer>
+</body>
+</html>
