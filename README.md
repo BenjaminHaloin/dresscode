@@ -1,136 +1,140 @@
-# DressCode — Site vitrine immersif RP
+# DressCode — Immersive RP Showcase Website
 
 ![DressCode](https://files.catbox.moe/2f4sy7.png)
 
-## À propos du projet
+[🇫🇷 Lire la version française](./README-fr.md)
 
-**DressCode** est un site vitrine immersif réalisé pour une entreprise fictive créée dans le cadre d’un serveur GTA RP, **IntroRP**.
+## About the Project
 
-Le projet avait pour objectif de donner une vraie présence digitale à une entreprise RP spécialisée dans la mode, le sur-mesure et l’identité vestimentaire. L’idée était de dépasser le simple message Discord ou LifeInvader en créant un site complet, crédible et immersif, comme si l’entreprise existait réellement dans l’univers du serveur.
+**DressCode** is an immersive showcase website created for a fictional fashion business on the GTA RP server **IntroRP**.
 
-Ce site a été conçu pour accompagner une activité RP menée avec une amie autour d’une marque de vêtements appelée **DressCode**. Il servait à présenter l’univers de l’entreprise, ses collections, son équipe, ses tarifs, son système de commandes personnalisées et ses moyens de contact.
+The project was originally designed to give a real digital identity to an in-roleplay company focused on fashion, custom outfits and personal style. Instead of relying only on Discord messages or in-game social media, the goal was to build a complete, credible and immersive website that made the company feel like a real brand inside the server universe.
 
-Aujourd’hui, ce projet est aussi utilisé comme élément de **portfolio** afin de montrer ma capacité à imaginer, structurer et développer une interface web complète à partir d’un besoin concret.
+DressCode was created as part of a roleplay project I ran with a friend. The website was used to present the company’s identity, collections, team, pricing, custom order process and contact options.
 
----
-
-## Contexte RP
-
-Dans l’univers d’**IntroRP**, DressCode était une entreprise orientée mode et création de tenues sur-mesure.
-
-Le site avait plusieurs rôles :
-
-* Présenter l’entreprise de manière professionnelle et immersive
-* Donner une identité visuelle forte à la marque DressCode
-* Mettre en avant les collections homme, femme et duo
-* Expliquer le fonctionnement des commandes sur-mesure
-* Afficher les tarifs de manière claire
-* Centraliser les contacts via LifeInvader et formulaire de commande
-* Renforcer l’immersion RP autour de l’entreprise
-
-Le projet a donc été pensé comme un vrai support de communication interne à un serveur roleplay, avec une logique proche d’un site vitrine professionnel.
+Today, this project is also used as part of my **web development portfolio**, as it demonstrates my ability to imagine, structure and build a complete front-end project from a concrete need.
 
 ---
 
-## Objectif portfolio
+## RP Context
 
-Même si le projet est né dans un contexte RP, il représente un cas concret de création web :
+Within the **IntroRP** universe, DressCode was a fashion-oriented company offering custom clothing and styling services.
 
-* Création d’une identité visuelle
-* Intégration de plusieurs pages HTML
-* Mise en page responsive
-* Navigation entre différentes sections
-* Travail sur l’expérience utilisateur
-* Utilisation d’images, de liens externes et de contenus immersifs
-* Déploiement possible en ligne pour consultation publique
+The website had several purposes:
 
-Ce projet me permet de montrer que je suis capable de transformer une idée ou un besoin communautaire en interface web concrète, structurée et présentable.
+* Present the company in a professional and immersive way
+* Build a strong visual identity for the DressCode brand
+* Showcase men’s, women’s and duo collections
+* Explain how custom orders worked
+* Display pricing clearly
+* Centralize contact options through LifeInvader and an order form
+* Strengthen the roleplay immersion around the business
 
----
-
-## Aperçu du site
-
-Le site propose une expérience visuelle sombre, moderne et premium, avec une ambiance orientée luxe, mode et personnalisation.
-
-### Pages principales
-
-* **Accueil** : présentation de l’univers DressCode et accès aux différentes sections
-* **Nos Collections** : point d’entrée vers les univers homme, femme et duo
-* **Notre Équipe** : présentation des personnages RP liés à l’entreprise
-* **Notre Vision** : mise en avant de l’identité et de la philosophie de la marque
-* **Nos Tarifs** : grille tarifaire des services et créations
-* **Sur-mesure & Commande** : explication du parcours de commande personnalisée
-* **Contact** : liens vers LifeInvader, formulaire de commande et emplacement de la boutique
+Although the project was created in a roleplay context, it was approached like a real showcase website for a brand.
 
 ---
 
-## Fonctionnalités intégrées
+## Portfolio Purpose
 
-### Navigation multi-pages
+Even though DressCode was born from a RP project, it represents a concrete web development use case.
 
-Le projet n’est pas limité à une simple page d’accueil. Il contient plusieurs pages reliées entre elles, permettant de parcourir l’univers de l’entreprise comme un vrai site vitrine.
+This project allowed me to work on:
 
-### Collections par catégories
+* Building a visual identity
+* Creating multiple HTML pages
+* Structuring a showcase website
+* Designing a responsive layout
+* Improving user experience and navigation
+* Integrating images, external links and immersive content
+* Preparing a project that can be hosted and shared online
 
-Les collections sont organisées autour de plusieurs univers :
+It shows my ability to turn an idea or a community need into a structured, presentable and usable web interface.
 
-* Homme
-* Femme
+---
+
+## Website Overview
+
+DressCode offers a dark, modern and premium visual experience, inspired by fashion, luxury and digital branding.
+
+### Main Pages
+
+* **Home** — Introduction to the DressCode universe and access to the main sections
+* **Collections** — Entry point for men’s, women’s and duo collections
+* **Team** — Presentation of the RP characters behind the company
+* **Vision** — Brand identity, values and creative direction
+* **Pricing** — Clear overview of services and in-game pricing
+* **Custom Orders** — Explanation of the custom outfit process
+* **Contact** — LifeInvader links, order form and shop location
+
+---
+
+## Main Features
+
+### Multi-page Navigation
+
+The project is not limited to a single landing page. It includes several connected pages, allowing users to explore the company’s universe like a real showcase website.
+
+### Collection Categories
+
+The collections are organized into several universes:
+
+* Men
+* Women
 * Duo
 
-Cette organisation donne une structure claire au contenu et permet d’imaginer une évolution future vers un vrai catalogue.
+This structure makes the content easier to browse and gives the project room to evolve into a more complete catalogue.
 
-### Commandes personnalisées
+### Custom Order Flow
 
-Une page dédiée explique le fonctionnement des commandes sur-mesure :
+A dedicated page explains how custom orders work:
 
-1. Prise de contact
-2. Échange autour du style souhaité
-3. Conception de la tenue
-4. Livraison et exclusivité temporaire
+1. First contact
+2. Discussion around the desired style
+3. Outfit creation
+4. Delivery and temporary exclusivity
 
-Cette partie renforce le côté réaliste et professionnel du projet RP.
+This section helped make the RP business feel more realistic and professional.
 
-### Tarifs RP
+### RP Pricing System
 
-Le site intègre une grille tarifaire cohérente avec l’économie du serveur, notamment pour les cintres, accessoires, items, tenues complètes, tenues personnalisées et tenues duo.
+The website includes a pricing page adapted to the server economy, covering items such as clothing hangers, accessories, individual pieces, full outfits, custom outfits and duo outfits.
 
-### Intégration LifeInvader
+### LifeInvader Integration
 
-Le site contient des liens vers LifeInvader, utilisé comme réseau social RP dans l’univers IntroRP, afin de connecter le site à l’écosystème du serveur.
+The website includes links to LifeInvader, the in-roleplay social media platform used in the IntroRP universe, connecting the website to the server ecosystem.
 
-### Formulaire de commande
+### External Order Form
 
-Un lien vers un formulaire externe permettait aux joueurs de passer commande ou de faire une demande personnalisée.
+An external form was linked to the website so players could submit custom orders or requests.
 
-### Expérience visuelle immersive
+### Immersive Visual Experience
 
-Le projet utilise une direction artistique sombre et premium, avec :
+The project uses a dark and premium visual direction, including:
 
-* Typographie marquée
-* Couleurs contrastées
-* Effets visuels
-* Loader d’accueil
-* Boutons stylisés
-* Images d’ambiance
-* Mise en page centrée sur l’immersion
-
----
-
-## Technologies utilisées
-
-| Technologie      | Utilisation                                                       |
-| ---------------- | ----------------------------------------------------------------- |
-| **HTML5**        | Structure des pages du site                                       |
-| **CSS3**         | Design, mise en page, responsive, animations et identité visuelle |
-| **JavaScript**   | Interactions simples, notamment le loader d’accueil               |
-| **Google Fonts** | Typographie personnalisée avec Orbitron                           |
-| **GitHub**       | Hébergement du code source et versioning                          |
-| **Netlify**      | Déploiement web possible du projet                                |
+* Strong typography
+* High-contrast colors
+* Visual effects
+* Intro loader
+* Styled buttons
+* Mood images
+* Layout focused on immersion and brand identity
 
 ---
 
-## Structure du dépôt
+## Technologies Used
+
+| Technology       | Purpose                                                         |
+| ---------------- | --------------------------------------------------------------- |
+| **HTML5**        | Page structure                                                  |
+| **CSS3**         | Styling, layout, responsiveness, animations and visual identity |
+| **JavaScript**   | Simple interactions, including the intro loader                 |
+| **Google Fonts** | Custom typography using Orbitron                                |
+| **GitHub**       | Source code hosting and versioning                              |
+| **Netlify**      | Possible static website deployment                              |
+
+---
+
+## Repository Structure
 
 ```bash
 dresscode/
@@ -148,98 +152,98 @@ dresscode/
 └── duo/
 ```
 
-Le projet est construit simplement, sans framework, avec des fichiers HTML autonomes contenant leur propre mise en page et leur style.
+The project is built in a simple way, without any front-end framework. Each HTML file represents a dedicated page of the website.
 
 ---
 
-## Installation locale
+## Local Installation
 
-Pour récupérer le projet :
+Clone the repository:
 
 ```bash
 git clone https://github.com/BenjaminHaloin/dresscode.git
 ```
 
-Puis entrer dans le dossier :
+Enter the project folder:
 
 ```bash
 cd dresscode
 ```
 
-Ensuite, ouvrir le fichier suivant dans un navigateur :
+Open the main file in your browser:
 
 ```bash
 index.html
 ```
 
-Il est aussi possible d’utiliser l’extension **Live Server** sur Visual Studio Code pour prévisualiser le site plus facilement.
+You can also use the **Live Server** extension in Visual Studio Code for a smoother local preview.
 
 ---
 
-## Déploiement
+## Deployment
 
-Le projet peut être déployé facilement sur une plateforme d’hébergement statique comme **Netlify**, **GitHub Pages** ou **Cloudflare Pages**.
+The project can easily be deployed on a static hosting platform such as **Netlify**, **GitHub Pages** or **Cloudflare Pages**.
 
-Exemple de workflow :
+Example workflow:
 
 ```bash
-GitHub → Netlify → Site en ligne
+GitHub → Netlify → Live Website
 ```
 
 ---
 
-## Ce que j’ai appris avec ce projet
+## What I Learned
 
-Ce projet m’a permis de pratiquer plusieurs notions importantes du développement web :
+This project helped me practice several important web development concepts:
 
-* Structurer un site multi-pages
-* Créer une direction artistique cohérente
-* Travailler l’intégration HTML/CSS
-* Utiliser des animations et transitions simples
-* Penser un site en fonction d’un usage réel
-* Adapter un projet RP pour en faire une vitrine crédible
-* Organiser un dépôt GitHub présentable dans un portfolio
-
----
-
-## Améliorations possibles
-
-Le projet peut encore évoluer avec plusieurs améliorations :
-
-* Séparer le CSS dans des fichiers dédiés
-* Ajouter un fichier JavaScript global
-* Améliorer le responsive mobile
-* Optimiser les images
-* Ajouter une vraie galerie de collections
-* Créer des fiches détaillées par tenue
-* Ajouter un système de filtres
-* Améliorer l’accessibilité
-* Ajouter des balises SEO plus complètes
-* Déployer une version publique stable
-* Ajouter des captures d’écran dans ce README
+* Structuring a multi-page website
+* Creating a consistent visual identity
+* Writing and organizing HTML/CSS
+* Using simple animations and transitions
+* Designing a website around a real use case
+* Turning a roleplay project into a credible showcase website
+* Preparing a GitHub repository that can be presented in a portfolio
 
 ---
 
-## Statut
+## Possible Improvements
 
-Projet terminé dans sa première version RP, puis réutilisé comme base de présentation portfolio.
+The project could still evolve with several improvements:
 
-Le site peut être amélioré progressivement pour devenir une vitrine encore plus professionnelle de mes compétences en intégration web.
+* Move CSS into dedicated stylesheet files
+* Add a global JavaScript file
+* Improve mobile responsiveness
+* Optimize images
+* Add a real collection gallery
+* Create detailed outfit pages
+* Add filtering options for collections
+* Improve accessibility
+* Add more complete SEO metadata
+* Deploy a stable public version
+* Add screenshots to this README
 
 ---
 
-## Auteur
+## Status
+
+The first RP version of the project is complete and is now being reused as a portfolio project.
+
+The website can continue to evolve into a more polished and professional showcase of my front-end development skills.
+
+---
+
+## Author
 
 **Benjamin HALOIN**
 
-Projet réalisé dans le cadre d’une initiative RP sur le serveur **IntroRP**, puis valorisé comme projet personnel dans une démarche de reconversion vers le développement web.
+Project created as part of a roleplay initiative on the **IntroRP** server, then reused as a personal project for my transition into web development.
 
 ---
 
-## Note personnelle
+## Personal Note
 
-DressCode est un projet important pour moi, car il représente l’un de mes premiers vrais sites construits autour d’un besoin concret.
+DressCode is an important project for me because it represents one of my first complete websites built around a concrete need.
 
-Même s’il vient d’un contexte roleplay, il m’a permis de travailler comme sur un vrai projet client : comprendre une identité, créer une ambiance, organiser des pages, présenter des informations clairement et rendre l’ensemble crédible pour les utilisateurs.
+Even though it came from a roleplay context, it allowed me to work as if I were building a real client project: understanding an identity, creating an atmosphere, organizing pages, presenting information clearly and making the whole experience credible for users.
 
-C’est exactement ce type de projet qui m’a donné envie d’aller plus loin dans le développement web.
+This is exactly the kind of project that made me want to go further into web development.
